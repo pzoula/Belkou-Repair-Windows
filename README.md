@@ -1,16 +1,29 @@
-# Belkou Recovery Repair Toolkit
+# Belkou Windows Diagnostic & Recovery
 
-Belkou is a Windows command-line recovery and repair toolkit.
+Belkou is a modular Windows diagnostic, repair, and reporting toolkit for IT technicians.
 
 ## CLI
 
 ```powershell
-belkou
+belkou                         # Interactive categorized menu
+belkou diagnose [--json]       # Auto diagnostic engine
+belkou repair                  # Guided repair workflow
+belkou system
+belkou hardware
+belkou network
+belkou storage
+belkou events
+belkou report [--json]
+belkou backup drivers
+belkou backup network
+belkou backup registry
 belkou --version
 belkou --help
 ```
 
-The default command opens the interactive repair menu.
+## Menu categories
+
+SYSTEM · REPAIR · NETWORK · STORAGE · PERFORMANCE · SECURITY · REPORTS · BACKUP
 
 ## Build
 
@@ -20,10 +33,13 @@ Requires .NET 8 SDK:
 dotnet publish .\src\Belkou.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o .\publish
 ```
 
-Then compile `installer\Belkou.iss` with Inno Setup.
+Then compile `installer\Belkou.iss` with Inno Setup to produce `Belkou-Setup-1.1.0.exe`.
 
-The ASCII banner is intentionally styled like modern CLI tools, with BELKOU shown as an outline/point-style terminal logo.
+## Reports
 
+Diagnostic reports are written to Documents under `Belkou-Reports\` (HTML, JSON, text).  
+Backups go to `Belkou-Backup\`.
 
 ## Branding
+
 The terminal banner spells the brand exactly as **BELKOU**.
